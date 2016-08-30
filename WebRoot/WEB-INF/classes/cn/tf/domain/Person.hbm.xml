@@ -1,0 +1,60 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class  name="cn.tf.domain.Person"  table="t_person">
+		<!-- 给表配置主键 -->
+		<id name="pid">
+			<!-- 主键生成策略 -->
+			<generator class="native"></generator>
+		</id>
+		<!-- 其他属性
+			name:默认用于配置javabean属性名称
+			length:配置长度，默认255
+			column:当前属性对应表中字段名称，默认和name值相同
+					column的属性： <property  column=""  ></property>
+					<column  name=""></column>
+			type: 数据字段类型
+					hibernate类型:例如:string(都是小写)
+					java类型:例如java.lang.String
+					mysql类型:例如varchar(50)  ,  <column  name="name"  sql-type="varchar(50)" />
+					
+			日期时间类型：
+					date:日期，java.util.Date
+					time:java.util.Date
+					timestamp:java.util.Date,时间戳随时间变化而变化
+					项目中使用datetime表示日期时间
+		 -->
+		 
+		 <!-- 其他配置
+				access ，用于确定当前属性如何进行数据封装
+					property : 默认值，hibernate采用javabean属性 与 表字段进行对应。在javabean必须提供 getter/setter方法
+					field ： hibernate采用 javabean 字段 与 表字段进行对应。 可以没有getter/setter方法
+						例如：private String username;
+					noop : 提供给hibernate hql使用，数据库没有对应字段。一般不使用。
+				precision 和 scale 给 oracle配置，在mysql没有作用。
+					precision 配置数字位数
+					scale 配置小数位数 
+					例如：numeric(precision,scale)  , 12.34  numeric(4,2)
+			 		
+		 
+		  -->
+		 
+		 
+		<property name="name"  length="50"  column="name"  type="string"   access="property">	</property>
+		<property name="gender"  ></property>
+		<property name="age"  type="integer"></property>
+		<property name="photo"  type="binary"   length="200000"></property>
+		<property name="birthday" >
+			<column name="birthday"  sql-type="datetime"></column>
+		</property>
+		<property name="desc"  column="`desc`"></property>
+		
+		
+		
+	</class>
+</hibernate-mapping>
+

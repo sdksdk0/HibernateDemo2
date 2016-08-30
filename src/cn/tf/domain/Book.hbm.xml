@@ -18,10 +18,6 @@
 			 dynamic-insert="false"  dynamic-update="false"
 			 如果使用动态更新，数据必须是查询获得的。
 			 
-			 
-			 
-			 
-			 
 		-->
 	<property name="title"  ></property>
 	<property name="price"   ></property>
@@ -31,4 +27,3 @@
 	</class>	
 	
 </hibernate-mapping>
-

@@ -8,6 +8,7 @@ import org.hibernate.classic.Session;
 import org.junit.Test;
 
 import cn.tf.domain.Book;
+import cn.tf.domain.Category;
 import cn.tf.domain.Person;
 import cn.tf.utils.H3Utils;
 
@@ -62,8 +63,8 @@ public class TestDemo3 {
 		
 	}
 	*/
-	@Test
-	public void test2() throws Exception{
+	/*@Test
+	public void test4() throws Exception{
 		
 		Session session=(Session) H3Utils.getCurrSession();
 		session.beginTransaction();
@@ -73,8 +74,26 @@ public class TestDemo3 {
 		System.out.println(book);
 		
 		session.getTransaction().commit();
+		//session.close();
+	}*/
+	
+	
+	@Test
+	public void test5() throws Exception{
+		
+		Session session=(Session) H3Utils.getCurrSession();
+		session.beginTransaction();
+		
+		Category category=new Category();
+		category.setCname("sasa");
+		
+		session.save(category);
+		
+		
+		session.getTransaction().commit();
 		
 	}
+	
 	
 	
 

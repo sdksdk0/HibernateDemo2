@@ -45,7 +45,7 @@
 		
 		<mapping  resource="cn/tf/domain/Person.hbm.xml"/>
 		<mapping  resource="cn/tf/domain/Book.hbm.xml"/>
-		
+		<mapping  resource="cn/tf/domain/Category.hbm.xml"/>
 		
 	</session-factory>
 </hibernate-configuration>

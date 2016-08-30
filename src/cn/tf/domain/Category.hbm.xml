@@ -1,0 +1,51 @@
+<?xml version="1.0"  encoding="UTF-8" ?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+	<class name="cn.tf.domain.Category"  table="t_category" >
+		<id  name="cid" >
+			<generator class="uuid"></generator>
+		</id>
+		<property name="cname"  ></property>
+		<!-- 
+			 id属性配置,
+			 name:OID属性名称
+			 column：表字段列名
+			 length:表字段长度
+			 type:表字段类型
+			 unsaved-value:save或update方法使用依据
+			 			String,默认是null,如果使用unsaved-value="abc" ，当执行save方法，设置“abc”相当之前null
+			 generator:主键生成策略
+			 			increment:类型必须是整型，自己维护表的数据自动增长，在执行insert语句执行之前，先查询，查询最大值，加1，但是在高并发或集群中会有一定的问题。
+			 			
+			 			identity:使用数据库底层的自动增长，auto_increment 
+			 			
+			 			sequence:oracle序列
+			 			hilo:采用高低位算法，不支持自动增长，也不支持序列
+			 					table ，设置数据库中，另一个表A的表名。
+								column，表A的列名
+								max_lo，一次操作多少条记录。100表示可以允许一次操作100条记录。
+								算法：max_lo *  next_value + next_value
+								例如：
+									<generator class="hilo">
+						                <param name="table">hi_value</param>
+						                <param name="column">next_value</param>
+						                <param name="max_lo">100</param>
+						        	</generator>
+						        	
+				非整型：
+						uuid:随机字符串32长度      
+						assigned:自然主键，手动设置
+										
+						        	
+						   
+		-->
+	
+
+	
+	</class>	
+	
+</hibernate-mapping>
